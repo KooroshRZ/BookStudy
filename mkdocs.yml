@@ -1,0 +1,63 @@
+site_name: "My summary for books study"
+site_url: "https://kooroshrz.github.io/BookStudy"
+site_description: "KooroshRZ Books Study Summary"
+site_author: "KooroshRZ"
+repo_name: 'KooroshRZ/BookStudy'
+edit_uri: 'blob/master/docs/'
+repo_url: 'https://github.com/KooroshRZ/BookStudy'
+
+
+theme:
+  name: material
+  palette:
+    scheme: default
+    primary: teal
+    accent: deep orange
+  features:
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate
+    - navigating.tabs
+    - navigating.sections
+    - navigating.top
+    - search.suggest
+    - search.highlight
+
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - tables
+  - pymdownx.arithmatex:
+      generic: true
+
+  
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+plugins:
+  - glightbox
+  - search
+  - tags:
+      title: KooroshRZ Books Study Summary
+      description: Here I note down my notes for studying CS and math books.
+      # image: docs/favicon.png
+  - social:
+      cards: true
+      # cards_layout: default
+
+
+nav:
+  - Introduction to Mathematical Cryptography: 
+    - An Introduction to Cryptography: introduction-to-mathematical-cryptography/An-Introduction-to-Cryptography.md
