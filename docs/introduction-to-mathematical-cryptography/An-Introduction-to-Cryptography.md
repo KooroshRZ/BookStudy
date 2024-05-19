@@ -1,4 +1,4 @@
-# An Introduction to Cryptography
+# Chapter 1 - An Introduction to Cryptography
 
 ## 1.1 Simple Substitution Ciphers
 
@@ -77,3 +77,211 @@ And here is the final decrypted text:
 The writer claimed by a momentary expression, a twitch of a mus- cle or a glance of an eye, to fathom a man’s inmost thoughts. His conclusions were as infallible as so many propositions of Euclid. So startling would his results appear to the uninitiated that until they learned the processes by which he had arrived at them they might well consider him as a necromancer.
 
 
+## 1.2 Divisibility and Greatest Common Divisors
+
+This section is about studying the natural numbers (1,2,3,4,...) or generally integer numbers (... ,-3,-2,-1,0,1,2,3,...) which is called **number theory**. operations defined over the set of integers (Z) should results in the same set which in other words should be integers.
+for example we can add, multiply and substract integers which results in integers. but we can not divide integers that assures the output is also an integer. so we define something named Divisibility.
+
+**Definition.** Let a and b be integers with $b  ̸= 0$. We say that $b$ divides $a$, or that $a$ is divisible by $b$, if there is an integer $c$ such that
+
+<center>
+$a = bc$
+</center>
+
+We write $b|a$ to indicate that $b$ divides $a$. If $b$ does not divide $a$, then we write $b \nmid a$.
+
+Example:
+
+$847 | 485331$ because $485331 = 847 \times 573$
+
+$259943 \nmid 355$ because $259943 = 355 \times 732 + 83$
+
+every integer is divisible by 1. integers that are divisible by 2 are **even**  and those are not divisible by 2 are **odd**.
+
+**Proposition 1.4** Let $a$, $b$, $c ∈ Z$ be integers.
+
+(a) If $a|b$ and $b|c$, then $a|c$.
+
+(b) If $a|b$ and $b|a$, then $a=±b$.
+
+(c) If $a|b$ and $a|c$, then $a|(b+c)$ and $a|(b−c)$.
+
+
+**Definition.** A common divisor of two integers $a$ and $b$ is a positive integer $d$ that divides both of them. The **greatest common divisor** of $a$ and $b$ is, as its name suggests, the largest positive integer $d$ such that $d | a$ and $d | b$. The greatest common divisor of $a$ and $b$ is denoted **gcd(a,b)**. If there is no possibility of confusion, it is also sometimes denoted by $(a, b)$. (If $a$ and $b$ are both $0$, then $gcd(a, b)$ is not defined.)
+
+**Example 1.5.** The greatest common divisor of 12 and 18 is 6, since $6 | 12$ and $6 | 18$ and there is no larger number with this property. Similarly,
+
+<center>
+$gcd(748, 2024) = 44$
+</center>
+
+One way to check that this is correct is to make lists of all of the positive divisors of 748 and of 2024.
+
+Divisors of 748 = $\{1, 2, 4, 11, 17, 22, 34, 44, 68, 187, 374, 748\}$
+
+Divisors of 2024 = $\{1, 2, 4, 8, 11, 22, 23, 44, 46, 88, 92, 184, 253,506, 1012, 2024\}$
+
+we see that 44 is greatest common divisor. but this is not an efficient way for large numbers.
+
+
+**Definition.** (Division With Remainder) Let $a$ and $b$ be positive integers. Then we say that $a$ divided by $b$ has _quotient_ $q$ and _remainder_ $r$ if
+
+<center>
+$a = b · q + r \quad with \quad 0 ≤ r < b$
+</center>
+
+
+Suppose now that we want to find the greatest common divisor of $a$ and $b$. We first divide $a$ by $b$ to get
+
+<center>
+$a = b · q + r \quad with \quad 0 ≤ r < b.$
+</center>
+
+If $d$ is any common divisor of $a$ and $b$, then it is clear from Eq. (1.1) that $d$ is also a divisor of $r$. (See Proposition 1.4(c).) Similarly, if $e$ is a common divisor of $b$ and $r$, then above equation shows that $e$ is a divisor of $a$. In other words, the common divisors of $a$ and $b$ are the same as the common divisors of $b$ and $r$; hence
+
+<center>
+$gcd(a, b) = gcd(b, r)$
+</center>
+
+We repeat the process, dividing b by r to get another quotient and remainder, say
+
+<center>
+$b=r·q + r \quad with \quad 0≤r'<r$
+</center>
+
+Then the same reasoning shows that
+
+<center>
+$gcd(b, r) = gcd(r, r )$
+</center>
+
+Continuing this process, the remainders become smaller and smaller, until eventually we get a remainder of $0$, at which point the final value $gcd(s, 0) = s$ is equal to the gcd of $a$ and $b$. This algorithm ic called **Euclidean algorithm**
+
+
+Here is an example from book
+
+![gcd Euclidean example](./imgs/Screenshot 2024-05-19 at 2.44.57 AM.png)
+
+
+
+**Theorem 1.7** (The Euclidean Algorithm). Let $a$ and $b$ be positive integers with $a ≥ b$. The following algorithm computes $gcd(a, b)$ in a finite number of steps.
+
+
+(1) Let $r_0 = a$ and $r_1 = b.$
+
+(2) Set $i=1$
+
+(3) Divide $ri−1$ by $ri$ to get a quotient $q_i$ and remainder $r_{i+1}$,
+<center>
+$ri−1 = r_i·q_i + r_{i+1} \quad with \quad 0 ≤ r_{i+1} <ri$
+</center>
+
+(4) If the remainder $r_{i+1} = 0$, then $r_i = gcd(a, b)$ and the algorithm terminates.
+
+(5) Otherwise, $r_{i+1} > 0$, so set $i=i+1$ and go to Step 3.
+
+_The division step (Step 3) is executed at most_
+
+<center>
+$2 log_2 b + 2 \quad$ times
+</center>
+
+Here is the overall look for step by step of Euclidean algorithm
+![gcd Euclidean proofs](./imgs/Screenshot 2024-05-19 at 3.01.37 AM.png)
+
+
+Let's see a claim
+
+![claim](./imgs/Screenshot 2024-05-19 at 3.19.26 AM.png)
+
+Hence if $2k ≥ b$, then $r_{2k+1} < 1$, which forces r_{2k+1} to equal $0$ and the algorithm to terminate. In terms of Fig.1.2, the value of r_{t+1} is $0$, so we have $t + 1 ≤ 2k + 1$, and thus $t ≤ 2k$. Further, there are exactly $t$ divisions performed in Fig. 1.2, so the Euclidean algorithm terminates in at most $2k$ iterations. Choose the smallest such $k$, so $2k ≥ b > 2k−1$. Then
+
+<center>
+$\# \space of \space iterations ≤ 2k = 2(k − 1) + 2 < 2 log2(b) + 2,$
+</center>
+
+which completes the proof of Theorem 1.7.
+
+
+Let's see an example for step by step demonstration for Euclidean algorithm.
+
+
+![example for Euclidean algorithm](./imgs/Screenshot 2024-05-19 at 3.39.13 AM.png)
+
+
+
+**Theorem 1.11** (Extended Euclidean Algorithm). Let $a$ and $b$ be positive integers. Then the equation
+
+<center>
+$au + bv = gcd(a, b)$
+</center>
+
+**Proof.** Look back at Fig.1.2, which illustrates the Euclidean algorithm step by step. We can solve the first line for $r_2 = a − bq_1$ and substitute it into the second line to get
+
+<center>
+$b=(a−bq_1)q_2 + r_3, \quad so \quad r_3 =−aq_2 +b·(1+q_1q_2)$.
+</center>
+
+Next substitute the expressions for $r_2$ and $r_3$ into the third line to get
+
+<center>
+$a−bq_1 = (−a·q_2 +b·(1+q_1q_2))q_3 +r4$
+</center>
+
+After rearranging the terms, this gives
+
+<center>
+$r_4 = a(1+q_2q_3)−b(q_1 + q_3 + q_1q_2q_3)$
+
+$r_4 = gcd(a,b)$
+
+$gcd(a,b) = au + bv$
+</center>
+
+
+**Definition.** Let $a$ and $b$ be integers. We say that $a$ and $b$ are relatively prime if $gcd(a, b) = 1$.
+
+
+More generally, any equation
+
+<center>
+$Au + Bv = gcd(A, B)$
+</center>
+
+can be reduced to the case of relatively prime numbers by dividing both sides by $gcd(A, B)$. Thus
+
+<center>
+$A u+ B v=1, gcd(A, B) gcd(A, B)$
+</center>
+
+where $a = \frac{A}{gcd(A,B)}$ and $b = \frac{B}{gcd(A, B)}$ are relatively prime and satisfy $au+bv = 1$.
+
+For example, we found earlier that 2024 and 748 have greatest common divisor 44 and satisfy
+
+<center>
+$−7 · 2024 + 19 · 748 = 44.$
+</center>
+
+Dividing both sides by 44, we obtain
+
+<center>
+$−7 · 46 + 19 · 17 = 1.$
+</center>
+
+Thus $2024/44 = 46$ and $748/44 = 17$ are relatively prime, and $u = −7$ and $v = 19$ are the coefficients of a linear combination of $46$ and $17$ that equals $1$.
+
+
+Let's introduce a new idea of solving and finding u,v. We first illustrate with the example $a = 73$ and $b = 25$. The Euclidean algorithm gives
+
+<center>
+$73 = 25 · 2 + 23$
+</center>
+
+
+![new idea for gcd](./imgs/Screenshot 2024-05-19 at 4.29.22 AM.png)
+
+
+![overall schema](./imgs/Screenshot 2024-05-19 at 4.30.20 AM.png)
+
+
+## 1.3 Modular Arithmetic

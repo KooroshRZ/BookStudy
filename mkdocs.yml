@@ -60,4 +60,4 @@ plugins:
 
 nav:
   - Introduction to Mathematical Cryptography: 
-    - An Introduction to Cryptography: introduction-to-mathematical-cryptography/An-Introduction-to-Cryptography.md
+    - Chapter 1 - An Introduction to Cryptography: introduction-to-mathematical-cryptography/An-Introduction-to-Cryptography.md
