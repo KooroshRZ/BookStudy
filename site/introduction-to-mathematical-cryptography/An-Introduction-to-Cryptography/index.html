@@ -1,0 +1,713 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="KooroshRZ Books Study Summary">
+      
+      
+        <meta name="author" content="KooroshRZ">
+      
+      
+        <link rel="canonical" href="https://kooroshrz.github.io/BookStudy/introduction-to-mathematical-cryptography/An-Introduction-to-Cryptography/">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.23">
+    
+    
+      
+        <title>Chapter 1 - An Introduction to Cryptography - My summary for books study</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Chapter 1 - An Introduction to Cryptography - My summary for books study" >
+      
+        <meta  property="og:description"  content="KooroshRZ Books Study Summary" >
+      
+        <meta  property="og:image"  content="https://kooroshrz.github.io/BookStudy/assets/images/social/introduction-to-mathematical-cryptography/An-Introduction-to-Cryptography.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://kooroshrz.github.io/BookStudy/introduction-to-mathematical-cryptography/An-Introduction-to-Cryptography/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Chapter 1 - An Introduction to Cryptography - My summary for books study" >
+      
+        <meta  name="twitter:description"  content="KooroshRZ Books Study Summary" >
+      
+        <meta  name="twitter:image"  content="https://kooroshrz.github.io/BookStudy/assets/images/social/introduction-to-mathematical-cryptography/An-Introduction-to-Cryptography.png" >
+      
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-1-an-introduction-to-cryptography" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="My summary for books study" class="md-header__button md-logo" aria-label="My summary for books study" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My summary for books study
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 1 - An Introduction to Cryptography
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/KooroshRZ/BookStudy" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    KooroshRZ/BookStudy
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="My summary for books study" class="md-nav__button md-logo" aria-label="My summary for books study" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    My summary for books study
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/KooroshRZ/BookStudy" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    KooroshRZ/BookStudy
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Introduction to Mathematical Cryptography
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Introduction to Mathematical Cryptography
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Chapter 1 - An Introduction to Cryptography
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 1 - An Introduction to Cryptography
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11-simple-substitution-ciphers" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Simple Substitution Ciphers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 Simple Substitution Ciphers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-cryptanalysis-of-simple-substitution-ciphers" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.1 Cryptanalysis of Simple Substitution Ciphers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-divisibility-and-greatest-common-divisors" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Divisibility and Greatest Common Divisors
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-modular-arithmetic" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Modular Arithmetic
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11-simple-substitution-ciphers" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 Simple Substitution Ciphers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 Simple Substitution Ciphers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-cryptanalysis-of-simple-substitution-ciphers" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.1 Cryptanalysis of Simple Substitution Ciphers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-divisibility-and-greatest-common-divisors" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 Divisibility and Greatest Common Divisors
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-modular-arithmetic" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 Modular Arithmetic
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="chapter-1-an-introduction-to-cryptography">Chapter 1 - An Introduction to Cryptography</h1>
+<h2 id="11-simple-substitution-ciphers">1.1 Simple Substitution Ciphers</h2>
+<p>Caesar is a simple substitution cipher which shifts every letter by a specific number (for example 5)</p>
+<p>jsjrdkfqqnslgfhpgwjfpymwtzlmnrrnsjsyqzhnzx</p>
+<p>enemyfallingbackbreakthroughimminentlucius</p>
+<p><a class="glightbox" href="../imgs/Screenshot%202024-05-17%20at%202.19.39%E2%80%AFAM.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Figure 1.1" src="../imgs/Screenshot%202024-05-17%20at%202.19.39%E2%80%AFAM.png" /></a></p>
+<p>simple substitution may differ from caesar (shift cipher) to random mapping</p>
+<div class="arithmatex">\[
+\{a,b,c,d,e,...,x,y,z\} \rightarrow \{A,B,C,D,E,...,X,Y,Z\}
+\]</div>
+<p>we can create encryption and decryption table to make encryption and decryption processes more convinient</p>
+<p><a class="glightbox" href="../imgs/Screenshot%202024-05-17%20at%202.27.31%E2%80%AFAM.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Table 1.1 ,1.2" src="../imgs/Screenshot%202024-05-17%20at%202.27.31%E2%80%AFAM.png" /></a></p>
+<h3 id="111-cryptanalysis-of-simple-substitution-ciphers">1.1.1 Cryptanalysis of Simple Substitution Ciphers</h3>
+<p>how many simple substitution ciphers?</p>
+<div class="arithmatex">\[
+26 \times 25 \times 24 \times ... \times 3 \times 2 \times 1 = 26! = 403291461126605635584000000
+\]</div>
+<p>sthere are a lot of possible keys for Eve to break Alice and Bob encrypted message. it takes <span class="arithmatex">\(10^{10}\)</span> years if she can try 1 million keys per second. so this looks impossible. right?</p>
+<p><strong>Your opponent always uses her best strategy to defeat you, not the strategy that you want her to use. Thus the security of an encryption system depends on the best known method to break it. As new and improved methods are developed, the level of security can only get worse, never better.</strong></p>
+<p>letters in english are not random. for example letter <code>e</code> is much more frequent and <code>e</code> is mostly followed by <code>t,a,o,n</code> and <code>q</code> is usually followed by <code>u</code> and it is unlinkely to see letters <code>fc</code> beside eachother.</p>
+<p><a class="glightbox" href="../imgs/Screenshot%202024-05-17%20at%202.18.04%E2%80%AFAM.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Table 1.1" src="../imgs/Screenshot%202024-05-17%20at%202.18.04%E2%80%AFAM.png" /></a></p>
+<p>the goal of decryption a simple substitution cipher is not decrypting the cipher text but it is introducing a new idea named <strong>statistical analysis</strong> in terms of cryptanalysis.</p>
+<p>an example</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>LOJUM YLJME PDYVJ QXTDV SVJNL DMTJZ WMJGG YSNDL UYLEO SKDVC
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>GEPJS MDIPD NEJSK DNJTJ LSKDL OSVDV DNGYN VSGLL OSCIO LGOYG
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>ESNEP CGYSN GUJMJ DGYNK DPPYX PJDGG SVDNT WMSWS GYLYS NGSKJ
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>CEPYQ GSGLD MLPYN IUSCP QOYGM JGCPL GDWWJ DMLSL OJCNY NYLYD
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>LJQLO DLCNL YPLOJ TPJDM NJQLO JWMSE JGGJG XTUOY EOOJO DQDMM
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>YBJQD LLOJV LOJTV YIOLU JPPES NGYQJ MOYVD GDNJE MSVDN EJM
+</span></code></pre></div>
+<p>Let's first sort letters based on their frequencies
+<a class="glightbox" href="../imgs/Screenshot%202024-05-17%20at%202.48.36%E2%80%AFAM.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Table 1.1" src="../imgs/Screenshot%202024-05-17%20at%202.48.36%E2%80%AFAM.png" /></a></p>
+<p>here is English most frequent bigrams
+<a class="glightbox" href="../imgs/Screenshot%202024-05-17%20at%202.48.49%E2%80%AFAM.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Table 1.1" src="../imgs/Screenshot%202024-05-17%20at%202.48.49%E2%80%AFAM.png" /></a></p>
+<p>Let's replace high frequent letters with the real ones(e)
+<a class="glightbox" href="../imgs/Screenshot%202024-05-17%20at%202.49.10%E2%80%AFAM.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Table 1.1" src="../imgs/Screenshot%202024-05-17%20at%202.49.10%E2%80%AFAM.png" /></a></p>
+<p>Continueing replacing letters based on English words
+<a class="glightbox" href="../imgs/Screenshot%202024-05-17%20at%202.49.20%E2%80%AFAM.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Table 1.1" src="../imgs/Screenshot%202024-05-17%20at%202.49.20%E2%80%AFAM.png" /></a></p>
+<p><a class="glightbox" href="../imgs/Screenshot%202024-05-17%20at%202.49.28%E2%80%AFAM.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Table 1.1" src="../imgs/Screenshot%202024-05-17%20at%202.49.28%E2%80%AFAM.png" /></a></p>
+<p><a class="glightbox" href="../imgs/Screenshot%202024-05-17%20at%202.49.32%E2%80%AFAM.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Table 1.1" src="../imgs/Screenshot%202024-05-17%20at%202.49.32%E2%80%AFAM.png" /></a></p>
+<p>And here is the final decrypted text:</p>
+<p>The writer claimed by a momentary expression, a twitch of a mus- cle or a glance of an eye, to fathom a man’s inmost thoughts. His conclusions were as infallible as so many propositions of Euclid. So startling would his results appear to the uninitiated that until they learned the processes by which he had arrived at them they might well consider him as a necromancer.</p>
+<h2 id="12-divisibility-and-greatest-common-divisors">1.2 Divisibility and Greatest Common Divisors</h2>
+<p>This section is about studying the natural numbers (1,2,3,4,...) or generally integer numbers (... ,-3,-2,-1,0,1,2,3,...) which is called <strong>number theory</strong>. operations defined over the set of integers (Z) should results in the same set which in other words should be integers.
+for example we can add, multiply and substract integers which results in integers. but we can not divide integers that assures the output is also an integer. so we define something named Divisibility.</p>
+<p><strong>Definition.</strong> Let a and b be integers with <span class="arithmatex">\(b  ̸= 0\)</span>. We say that <span class="arithmatex">\(b\)</span> divides <span class="arithmatex">\(a\)</span>, or that <span class="arithmatex">\(a\)</span> is divisible by <span class="arithmatex">\(b\)</span>, if there is an integer <span class="arithmatex">\(c\)</span> such that</p>
+<p><center>
+<span class="arithmatex">\(a = bc\)</span>
+</center></p>
+<p>We write <span class="arithmatex">\(b|a\)</span> to indicate that <span class="arithmatex">\(b\)</span> divides <span class="arithmatex">\(a\)</span>. If <span class="arithmatex">\(b\)</span> does not divide <span class="arithmatex">\(a\)</span>, then we write <span class="arithmatex">\(b \nmid a\)</span>.</p>
+<p>Example:</p>
+<p><span class="arithmatex">\(847 | 485331\)</span> because <span class="arithmatex">\(485331 = 847 \times 573\)</span></p>
+<p><span class="arithmatex">\(259943 \nmid 355\)</span> because <span class="arithmatex">\(259943 = 355 \times 732 + 83\)</span></p>
+<p>every integer is divisible by 1. integers that are divisible by 2 are <strong>even</strong>  and those are not divisible by 2 are <strong>odd</strong>.</p>
+<p><strong>Proposition 1.4</strong> Let <span class="arithmatex">\(a\)</span>, <span class="arithmatex">\(b\)</span>, <span class="arithmatex">\(c ∈ Z\)</span> be integers.</p>
+<p>(a) If <span class="arithmatex">\(a|b\)</span> and <span class="arithmatex">\(b|c\)</span>, then <span class="arithmatex">\(a|c\)</span>.</p>
+<p>(b) If <span class="arithmatex">\(a|b\)</span> and <span class="arithmatex">\(b|a\)</span>, then <span class="arithmatex">\(a=±b\)</span>.</p>
+<p>(c) If <span class="arithmatex">\(a|b\)</span> and <span class="arithmatex">\(a|c\)</span>, then <span class="arithmatex">\(a|(b+c)\)</span> and <span class="arithmatex">\(a|(b−c)\)</span>.</p>
+<p><strong>Definition.</strong> A common divisor of two integers <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> is a positive integer <span class="arithmatex">\(d\)</span> that divides both of them. The <strong>greatest common divisor</strong> of <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> is, as its name suggests, the largest positive integer <span class="arithmatex">\(d\)</span> such that <span class="arithmatex">\(d | a\)</span> and <span class="arithmatex">\(d | b\)</span>. The greatest common divisor of <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> is denoted <strong>gcd(a,b)</strong>. If there is no possibility of confusion, it is also sometimes denoted by <span class="arithmatex">\((a, b)\)</span>. (If <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> are both <span class="arithmatex">\(0\)</span>, then <span class="arithmatex">\(gcd(a, b)\)</span> is not defined.)</p>
+<p><strong>Example 1.5.</strong> The greatest common divisor of 12 and 18 is 6, since <span class="arithmatex">\(6 | 12\)</span> and <span class="arithmatex">\(6 | 18\)</span> and there is no larger number with this property. Similarly,</p>
+<p><center>
+<span class="arithmatex">\(gcd(748, 2024) = 44\)</span>
+</center></p>
+<p>One way to check that this is correct is to make lists of all of the positive divisors of 748 and of 2024.</p>
+<p>Divisors of 748 = <span class="arithmatex">\(\{1, 2, 4, 11, 17, 22, 34, 44, 68, 187, 374, 748\}\)</span></p>
+<p>Divisors of 2024 = <span class="arithmatex">\(\{1, 2, 4, 8, 11, 22, 23, 44, 46, 88, 92, 184, 253,506, 1012, 2024\}\)</span></p>
+<p>we see that 44 is greatest common divisor. but this is not an efficient way for large numbers.</p>
+<p><strong>Definition.</strong> (Division With Remainder) Let <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> be positive integers. Then we say that <span class="arithmatex">\(a\)</span> divided by <span class="arithmatex">\(b\)</span> has <em>quotient</em> <span class="arithmatex">\(q\)</span> and <em>remainder</em> <span class="arithmatex">\(r\)</span> if</p>
+<p><center>
+<span class="arithmatex">\(a = b · q + r \quad with \quad 0 ≤ r &lt; b\)</span>
+</center></p>
+<p>Suppose now that we want to find the greatest common divisor of <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span>. We first divide <span class="arithmatex">\(a\)</span> by <span class="arithmatex">\(b\)</span> to get</p>
+<p><center>
+<span class="arithmatex">\(a = b · q + r \quad with \quad 0 ≤ r &lt; b.\)</span>
+</center></p>
+<p>If <span class="arithmatex">\(d\)</span> is any common divisor of <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span>, then it is clear from Eq. (1.1) that <span class="arithmatex">\(d\)</span> is also a divisor of <span class="arithmatex">\(r\)</span>. (See Proposition 1.4(c).) Similarly, if <span class="arithmatex">\(e\)</span> is a common divisor of <span class="arithmatex">\(b\)</span> and <span class="arithmatex">\(r\)</span>, then above equation shows that <span class="arithmatex">\(e\)</span> is a divisor of <span class="arithmatex">\(a\)</span>. In other words, the common divisors of <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> are the same as the common divisors of <span class="arithmatex">\(b\)</span> and <span class="arithmatex">\(r\)</span>; hence</p>
+<p><center>
+<span class="arithmatex">\(gcd(a, b) = gcd(b, r)\)</span>
+</center></p>
+<p>We repeat the process, dividing b by r to get another quotient and remainder, say</p>
+<p><center>
+<span class="arithmatex">\(b=r·q + r \quad with \quad 0≤r'&lt;r\)</span>
+</center></p>
+<p>Then the same reasoning shows that</p>
+<p><center>
+<span class="arithmatex">\(gcd(b, r) = gcd(r, r )\)</span>
+</center></p>
+<p>Continuing this process, the remainders become smaller and smaller, until eventually we get a remainder of <span class="arithmatex">\(0\)</span>, at which point the final value <span class="arithmatex">\(gcd(s, 0) = s\)</span> is equal to the gcd of <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span>. This algorithm ic called <strong>Euclidean algorithm</strong></p>
+<p>Here is an example from book</p>
+<p><a class="glightbox" href="../imgs/Screenshot%202024-05-19%20at%202.44.57%E2%80%AFAM.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="gcd Euclidean example" src="../imgs/Screenshot%202024-05-19%20at%202.44.57%E2%80%AFAM.png" /></a></p>
+<p><strong>Theorem 1.7</strong> (The Euclidean Algorithm). Let <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> be positive integers with <span class="arithmatex">\(a ≥ b\)</span>. The following algorithm computes <span class="arithmatex">\(gcd(a, b)\)</span> in a finite number of steps.</p>
+<p>(1) Let <span class="arithmatex">\(r_0 = a\)</span> and <span class="arithmatex">\(r_1 = b.\)</span></p>
+<p>(2) Set <span class="arithmatex">\(i=1\)</span></p>
+<p>(3) Divide <span class="arithmatex">\(ri−1\)</span> by <span class="arithmatex">\(ri\)</span> to get a quotient <span class="arithmatex">\(q_i\)</span> and remainder <span class="arithmatex">\(r_{i+1}\)</span>,
+<center>
+<span class="arithmatex">\(ri−1 = r_i·q_i + r_{i+1} \quad with \quad 0 ≤ r_{i+1} &lt;ri\)</span>
+</center></p>
+<p>(4) If the remainder <span class="arithmatex">\(r_{i+1} = 0\)</span>, then <span class="arithmatex">\(r_i = gcd(a, b)\)</span> and the algorithm terminates.</p>
+<p>(5) Otherwise, <span class="arithmatex">\(r_{i+1} &gt; 0\)</span>, so set <span class="arithmatex">\(i=i+1\)</span> and go to Step 3.</p>
+<p><em>The division step (Step 3) is executed at most</em></p>
+<p><center>
+<span class="arithmatex">\(2 log_2 b + 2 \quad\)</span> times
+</center></p>
+<p>Here is the overall look for step by step of Euclidean algorithm
+<a class="glightbox" href="../imgs/Screenshot%202024-05-19%20at%203.01.37%E2%80%AFAM.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="gcd Euclidean proofs" src="../imgs/Screenshot%202024-05-19%20at%203.01.37%E2%80%AFAM.png" /></a></p>
+<p>Let's see a claim</p>
+<p><a class="glightbox" href="../imgs/Screenshot%202024-05-19%20at%203.19.26%E2%80%AFAM.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="claim" src="../imgs/Screenshot%202024-05-19%20at%203.19.26%E2%80%AFAM.png" /></a></p>
+<p>Hence if <span class="arithmatex">\(2k ≥ b\)</span>, then <span class="arithmatex">\(r_{2k+1} &lt; 1\)</span>, which forces r_{2k+1} to equal <span class="arithmatex">\(0\)</span> and the algorithm to terminate. In terms of Fig.1.2, the value of r_{t+1} is <span class="arithmatex">\(0\)</span>, so we have <span class="arithmatex">\(t + 1 ≤ 2k + 1\)</span>, and thus <span class="arithmatex">\(t ≤ 2k\)</span>. Further, there are exactly <span class="arithmatex">\(t\)</span> divisions performed in Fig. 1.2, so the Euclidean algorithm terminates in at most <span class="arithmatex">\(2k\)</span> iterations. Choose the smallest such <span class="arithmatex">\(k\)</span>, so <span class="arithmatex">\(2k ≥ b &gt; 2k−1\)</span>. Then</p>
+<p><center>
+<span class="arithmatex">\(\# \space of \space iterations ≤ 2k = 2(k − 1) + 2 &lt; 2 log2(b) + 2,\)</span>
+</center></p>
+<p>which completes the proof of Theorem 1.7.</p>
+<p>Let's see an example for step by step demonstration for Euclidean algorithm.</p>
+<p><a class="glightbox" href="../imgs/Screenshot%202024-05-19%20at%203.39.13%E2%80%AFAM.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="example for Euclidean algorithm" src="../imgs/Screenshot%202024-05-19%20at%203.39.13%E2%80%AFAM.png" /></a></p>
+<p><strong>Theorem 1.11</strong> (Extended Euclidean Algorithm). Let <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> be positive integers. Then the equation</p>
+<p><center>
+<span class="arithmatex">\(au + bv = gcd(a, b)\)</span>
+</center></p>
+<p><strong>Proof.</strong> Look back at Fig.1.2, which illustrates the Euclidean algorithm step by step. We can solve the first line for <span class="arithmatex">\(r_2 = a − bq_1\)</span> and substitute it into the second line to get</p>
+<p><center>
+<span class="arithmatex">\(b=(a−bq_1)q_2 + r_3, \quad so \quad r_3 =−aq_2 +b·(1+q_1q_2)\)</span>.
+</center></p>
+<p>Next substitute the expressions for <span class="arithmatex">\(r_2\)</span> and <span class="arithmatex">\(r_3\)</span> into the third line to get</p>
+<p><center>
+<span class="arithmatex">\(a−bq_1 = (−a·q_2 +b·(1+q_1q_2))q_3 +r4\)</span>
+</center></p>
+<p>After rearranging the terms, this gives</p>
+<p><center>
+<span class="arithmatex">\(r_4 = a(1+q_2q_3)−b(q_1 + q_3 + q_1q_2q_3)\)</span></p>
+<p><span class="arithmatex">\(r_4 = gcd(a,b)\)</span></p>
+<p><span class="arithmatex">\(gcd(a,b) = au + bv\)</span>
+</center></p>
+<p><strong>Definition.</strong> Let <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> be integers. We say that <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span> are relatively prime if <span class="arithmatex">\(gcd(a, b) = 1\)</span>.</p>
+<p>More generally, any equation</p>
+<p><center>
+<span class="arithmatex">\(Au + Bv = gcd(A, B)\)</span>
+</center></p>
+<p>can be reduced to the case of relatively prime numbers by dividing both sides by <span class="arithmatex">\(gcd(A, B)\)</span>. Thus</p>
+<p><center>
+<span class="arithmatex">\(A u+ B v=1, gcd(A, B) gcd(A, B)\)</span>
+</center></p>
+<p>where <span class="arithmatex">\(a = \frac{A}{gcd(A,B)}\)</span> and <span class="arithmatex">\(b = \frac{B}{gcd(A, B)}\)</span> are relatively prime and satisfy <span class="arithmatex">\(au+bv = 1\)</span>.</p>
+<p>For example, we found earlier that 2024 and 748 have greatest common divisor 44 and satisfy</p>
+<p><center>
+<span class="arithmatex">\(−7 · 2024 + 19 · 748 = 44.\)</span>
+</center></p>
+<p>Dividing both sides by 44, we obtain</p>
+<p><center>
+<span class="arithmatex">\(−7 · 46 + 19 · 17 = 1.\)</span>
+</center></p>
+<p>Thus <span class="arithmatex">\(2024/44 = 46\)</span> and <span class="arithmatex">\(748/44 = 17\)</span> are relatively prime, and <span class="arithmatex">\(u = −7\)</span> and <span class="arithmatex">\(v = 19\)</span> are the coefficients of a linear combination of <span class="arithmatex">\(46\)</span> and <span class="arithmatex">\(17\)</span> that equals <span class="arithmatex">\(1\)</span>.</p>
+<p>Let's introduce a new idea of solving and finding u,v. We first illustrate with the example <span class="arithmatex">\(a = 73\)</span> and <span class="arithmatex">\(b = 25\)</span>. The Euclidean algorithm gives</p>
+<p><center>
+<span class="arithmatex">\(73 = 25 · 2 + 23\)</span>
+</center></p>
+<p><a class="glightbox" href="../imgs/Screenshot%202024-05-19%20at%204.29.22%E2%80%AFAM.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="new idea for gcd" src="../imgs/Screenshot%202024-05-19%20at%204.29.22%E2%80%AFAM.png" /></a></p>
+<p><a class="glightbox" href="../imgs/Screenshot%202024-05-19%20at%204.30.20%E2%80%AFAM.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="overall schema" src="../imgs/Screenshot%202024-05-19%20at%204.30.20%E2%80%AFAM.png" /></a></p>
+<h2 id="13-modular-arithmetic">1.3 Modular Arithmetic</h2>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.select", "content.code.annotate", "navigating.tabs", "navigating.sections", "navigating.top", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.ebd0bdb7.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
