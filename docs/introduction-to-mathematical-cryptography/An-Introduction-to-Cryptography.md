@@ -285,3 +285,89 @@ $73 = 25 · 2 + 23$
 
 
 ## 1.3 Modular Arithmetic
+
+**Definition.** Let $m ≥ 1$ be an integer. We say that the integers a and b are congruent modulo m if their difference $a − b$ is divisible by $m$. We write
+
+<center>
+$a \equiv b \quad \mod m$
+</center>
+
+To indicate that $a$ and $b$ are congruent modulo $m$. The number $m$ is called the **modulus**.
+
+
+**Proposition 1.13.** Let $m ≥ 1$ be an integer.
+
+(a) If $a1 \equiv a2 \pmod{m} \quad and \quad b1 \equiv b2 \pmod{m}, then$
+
+<center>
+$a1 ±b1 \equiv a2 ± b2 \pmod{m} \quad and \quad a1·b1 \equiv a2·b2 \pmod{m}.$
+</center>
+
+
+(b) Let $a$ be an integer. Then
+<center>
+$a·b \equiv 1 \pmod{m}$ for some integer $b$ if and only if $gcd(a,m)=1$.
+</center>
+
+Further, if $a·b1 \equiv a·b2 \equiv 1 \pmod{m}$, then $b1 \equiv b2 \pmod{m}$. We call $b$ the (multiplicative) inverse of $a$ modulo $m$.
+
+the notation for multiplicative inversie id $a^{-1}$ or $\frac{1}{a}$. namely $a−1 \pmod{m}$ is the unique number $b \pmod{m}$ satisfying the congruence $ab \equiv 1 \pmod{m}$.
+
+for example $2^{−1} \equiv 3 \pmod{5}$
+
+For example, we can compute $5/7 \pmod{11}$ by first observing that $7·8 \equiv 1 \pmod{11}$, so $7−1 \equiv 8 \pmod{11}$.Then
+
+$\frac{7}{5} = 5·7^{−1} \equiv 5·8 \equiv 40 \equiv 7 \pmod{11}.$
+
+
+We now continue our development of the theory of modular arithmetic. If a divided by $m$ has quotient $q$ and remainder $r$, it can be written as
+
+<center>
+$a = m·q + r \quad with \quad 0 ≤ r < m.$
+</center>
+
+This shows that $a \equiv r \pmod{m}$ for some integer $r$ between $0$ and $m−1$, so if we want to work with integers modulo $m$, it is enough to use the integers $0 ≤ r < m$. This prompts the following definition.
+
+**Definition.** We write
+
+<center>
+$Z/mZ = \{ 0, 1, 2, . . . , m − 1 \}$
+</center>
+
+and call $Z/mZ$ the ring of integers modulo $m$. We add and multiply elements of $Z/mZ$ by adding or multiplying them as integers and then dividing the result by $m$ and taking the remainder in order to obtain an element in $Z/mZ$.
+
+Example of $Z/5Z$ operations:
+
+![Z/5Z](./imgs/Screenshot 2024-05-28 at 2.26.11 PM.png)
+
+Numbers that have inverses are called units. We denote the set of all units by
+
+$(Z/mZ)^* = \{a ∈ Z/mZ : gcd(a,m) = 1\}$
+$\quad \quad \quad \space \space \space \space = \{a ∈ Z/mZ : \mbox{a has an inverse modulo m} \}.$
+
+$ $\mbox{The set} (Z/mZ)^*$ $\mbox{is called the group of units modulo m}$.
+
+Notice that if $a_1$ and $a_2$ are units modulo $m$, then so is $a_1a_2$. (Do you see why this is true?) So when we multiply two units, we always get a unit. On the other hand, if we add two units, we often do not get a unit.
+
+Example. The group of units modulo $24$ is
+
+<center>
+$(Z/24Z)^* = \{1, 5, 7, 11, 13, 17, 19, 23\}.$
+</center>
+
+Similarly, the group of units modulo 7 is
+<center>
+$(Z/7Z)^* = \{1, 2, 3, 4, 5, 6\},$
+</center>
+
+since every number between $1$ and $6$ is relatively prime to $7$.
+
+**Definition.** $\mbox{Euler’s phi function}$ (also sometimes known as $\mbox{Euler’s totient function}$) is the function $\phi(m)$ defined by the rule
+
+<center>
+$\phi(m) = \#(Z/mZ)^* = \#\{ 0 \le a < m:gcd(a,m)=1 \}$
+</center>
+
+For example, we see from Example above that $\phi(24) = 8 \quad and \quad \phi(7) = 6$.
+
+![operations of Z/7Z and Z/24Z](./imgs/Screenshot 2024-05-28 at 2.49.39 PM.png)
