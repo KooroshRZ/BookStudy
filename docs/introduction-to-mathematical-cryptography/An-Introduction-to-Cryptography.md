@@ -371,3 +371,93 @@ $\phi(m) = \#(Z/mZ)^* = \#\{ 0 \le a < m:gcd(a,m)=1 \}$
 For example, we see from Example above that $\phi(24) = 8 \quad and \quad \phi(7) = 6$.
 
 ![operations of Z/7Z and Z/24Z](./imgs/Screenshot 2024-05-28 at 2.49.39 PM.png)
+
+
+### 1.3.1 modular arithmatic and shift ciphers
+
++ Ceasar shift ciphers works like modular arithmatic. you shift then corresponding letter by K and take mods 26
+
+Encryption is like:
+
+<center>
+$(Ciphertext Letter) ≡ (Plaintext Letter) + (Secret Key) \mod 26$
+</center>
+
+Decryption is like:
+
+<center>
+$(Plaintext Letter) ≡ (Ciphertext Letter) − (Secret Key) (mod 26)$
+</center>
+
+
+Consider 
++ $p = $ PlainText Letter
++ $c = $ CipherText Letter
++ $k = $ Secret Key
+
+then:
+
+<center>
+$\underbrace{c ≡ p + k \mod 26}_\text{encryption} \space \space \space \space , \space \space \space \space \underbrace{p ≡ c − k \mod 26}_\text{decryption}$
+</center>
+
+
+### 1.3.2 The Fast Powering Algorithm
+
+sometimes we need to compute large exponents to a large modulus, by just computing g1, g2, ... it is infeasable so we need an optimum algorithm.
+the idea is binary expansion:
+suppose our exponent $e$ is 218 and we wanna compute $3^{218} (\mod 1000)$, first we should write its binary form like 
+
+<center>
+$218 = 2 + 2^3 + 2^4 + 2^6 + 2^7$
+</center>
+
+then we can write
+
+<center>
+$3^{218} =3^{2 + 2^3 + 2^4 + 2^6 + 2^7} = 3^2 . 3^{2^3} . 3^{2^4} . 3^{2^6} . 3^{2^7}$ 
+</center>
+
+computing each of these elements is easy. since each number in the sequence is the square of the preceding one. Further, since we only need these values modulo 1000, we never need to store more than three digits
+
+$3^{218} = 3^2 . 3^{2^3} . 3^{2^4} . 3^{2^6} . 3^{2^7}$
+
+$≡ 9·561·721·281·961 (\mod 1000)$
+
+$≡ 489 (\mod 1000)$
+
+
+this approach has several names like **Fast Powering Algorithm** and the **Square-and-Multiply Algorithm**
+overall schema:
+
+**Step 1**:
+
+$A = A_0 + A_1·2 + A_2·2^2 + A_3·2^3 + ··· + A_r·2^r \rightarrow A0,...,Ar ∈ {0,1}$
+
+**Step 2**:
+
+$a_0 ≡ g (\mod N)$
+
+$a_1 ≡ a_0^2 ≡ g^2 (\mod N)$
+
+$a_2 ≡ a_1^2 ≡ g^{2^2} (\mod N)$
+
+$a_3 ≡ a_2^2 ≡ g^{2^3} (\mod N)$
+
+.     .
+.     .
+.     .
+
+$a_r ≡ a_{r−1}^2 ≡ g^{2^r}$
+
+
+**Step 3**:
+
+$g^A = g^{A_0 + A_1.2 + A_2.2^2 + A_3.2^3 + ... + A_r·2^r}$
+
+$g^{A_0} . (g^2)^{A_1} . (g^{2^2})^{A_2} . (g^{2^3})^{A_3} ... (g^{2^r})^{A_r}$
+
+$≡{a_0}^{A_0} . {a_1}^{A_1} . {a_2}^{A_2} . {a_3}^{A_3} ... {a_r}^{A_r} (\mod N)$
+
+
+It takes at most $2r$ multiplications modulo N to compute $g^A$.
