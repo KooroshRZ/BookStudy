@@ -461,3 +461,64 @@ $≡{a_0}^{A_0} . {a_1}^{A_1} . {a_2}^{A_2} . {a_3}^{A_3} ... {a_r}^{A_r} (\mod 
 
 
 It takes at most $2r$ multiplications modulo N to compute $g^A$.
+
+
+## 1.4 Prime Numbers, Unique Factorization, and Finite Fields
+
+In modular arithmatic we can add, subtract and multiply easily. but division is not that simple. we can only devide $a/m$ in $Z/mZ$ only if $gcd(a,m)=1$. if m is prime then we can divide by every non-zero element of the ring.
+
+**Definition.** An integer $p$ is called a prime if $p ≥ 2$ and if the only positive integers dividing $p$ are $1$ and $p$
+
+
+**Proposition 1.19.** Let $p$ be a prime number, and suppose that $p$ divides the product $ab$ of two integers $a$ and $b$. Then $p$ divides at least one of $a$ and $b$. More generally, if $p$ divides a product of integers, say
+
+$p | a_1.a_2 ... a_n \rightarrow$ p divides at least one of $a_i$
+
+**Theorem 1.20** (The Fundamental Theorem of Arithmetic). Let $a ≥ 2$ be an integer. Then $a$ can be factored as a product of prime numbers
+
+$a = {p_1}^{e_1} . {p_2}^{e_2} . {p_3}^{e_3} ... {p_r}^{e_r}.$
+
+this factorization to prime factors is unique.
+we write exponent of each factor like this
+
+$ord_p(a)=e$
+
+$a = \prod_{primes(p)}{p^{ord_p(a)}}$
+
+$ord_p : {1,2,3,...} \rightarrow {0,1,2,3,...}.$
+
+
+We now observe that if $p$ is a prime, then every nonzero number modulo $p$ has a multiplicative inverse modulo $p$
+
+
+**Proposition 1.21.** Let $p$ be a prime. Then every nonzero element $a$ in $Z/pZ$ has a multiplicative inverse, that is, there is a number $b$ satisfying
+
+<center>
+$ab ≡ 1 (\mod p).$
+</center>
+
+We denote this value of b by $a^{−1}$ mod $p$
+
+**Remark 1.22.** The extended Euclidean algorithm (Theorem 1.11) gives us an efficient computational method for computing $a^{−1} \mod p$. We simply solve the equation
+
+<center>
+$au + pv = 1 \quad in \space integers \quad u,v$
+</center>
+
+and then $u = a^{−1} \mod p$.
+
+
+Proposition 1.21 can be restated by saying that if $p$ is prime, then
+
+<center>
+$(Z/pZ)^* ={1,2,3,4,...,p−1}.$
+</center>
+
+In other words if $0$ is removed from $Z/pZ$ then the remaining elements are unit and are closed under multiplication.
+
+
+**Definition.** If $p$ is prime, then the set $Z/pZ$ of integers modulo $p$ with its addition, subtraction, multiplication, and division rules is an example of a field. A field is the general name for a (commutative) ring in which every nonzero element has a multiplicative inverse. You are already familiar with some other fields, for example the field of real numbers $R$, the field of rational numbers (fractions) $Q$, and the field of complex numbers $C$.
+
+The field $Z/pZ$ of integers modulo $p$ has only finitely many elements. It is a finite field and is often denoted by $F_p$. Thus $F_p$ and $Z/pZ$ are really just two different notations for the same object. Similarly, we write ${F_p}^p$ interchangeably for the group of units $(Z/pZ)^*$. Finite fields are of fundamental importance throughout cryptography, and indeed throughout all of mathematics.
+
+Finite fields are also sometimes called Galois fields, after E ́variste Galois, who studied them in the nineteenth century. Yet another notation for $F_p$ is $GF(p)$, in honor of Galois. And yet one more notation for $F_p$ that you may run across is $Z_p$, although in number theory the notation $Z_p$ is more commonly reserved for the ring of p-adic integers.
